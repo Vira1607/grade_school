@@ -1,16 +1,38 @@
-# This is a sample Python script.
+print('\nЗадача 6. Успеваемость в классе')
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# В классе N человек.
+# Каждый из них получил за урок по информатике оценку: 3, 4 или 5, двоек сегодня не было.
+#
+# Напишите программу,
+# которая получает список оценок - N чисел - и выводит на экран сообщение о том,
+# кого сегодня больше: отличников, хорошистов или троечников.
 
+peoples = int(input('Человек в классе: '))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+grade_C = 0
+grade_B = 0
+grade_A = 0
 
+for i in range(peoples):
+    grade = int(input('Оценка: '))
+    if grade == 3:
+        grade_C += 1
+    elif grade == 4:
+        grade_B += 1
+    else:
+        grade_A += 1
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+if (grade_A > grade_B) and (grade_A > grade_C):
+    above = 'отличников'
+elif (grade_A == grade_B) and (grade_A > grade_C):
+    above = 'отличников и хорошистов'
+elif (grade_A > grade_B) and (grade_A == grade_C):
+    above = 'отличников и троечников'
+elif (grade_B > grade_C):
+    above = 'хорошистов'
+elif (grade_B == grade_C):
+    above = 'хорошистов и троечников'
+else:
+    above = 'троечников'
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print('Сегодня больше', above)
